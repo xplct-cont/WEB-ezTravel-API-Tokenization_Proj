@@ -63,10 +63,10 @@
                         <img src="https://assets.infyom.com/logo/blue_logo_150x150.png"
                              class="img-circle elevation-2"
                              alt="User Image">
-                        <p>
+                        <h5>
                             {{ Auth::user()->name }}
                             <small>BSIT {{ Auth::user()->created_at->format('M. Y') }}</small>
-                        </p>
+                        </h5>
                     </li>
                     <!-- Menu Footer-->
                     <li class="user-footer">

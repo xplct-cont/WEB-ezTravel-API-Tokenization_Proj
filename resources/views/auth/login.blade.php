@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <div class="bg-d">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{ config('app.name') }}</title>
@@ -42,7 +43,7 @@
     <!-- /.login-box-body -->
     <div class="card">
         <div class="card-body login-card-body">
-            <p class="login-box-msg">Sign in to start your session</p>
+            <p class="login-box-msg">ezTravel</p>
 
             <form method="post" action="{{ url('/login') }}">
                 @csrf
@@ -86,7 +87,7 @@
                     </div>
 
                     <div class="col-4">
-                        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
                     </div>
 
                 </div>
@@ -103,6 +104,7 @@
     </div>
 
 </div>
+</div>
 <!-- /.login-box -->
 
 <!-- AdminLTE App -->
@@ -111,4 +113,17 @@
         crossorigin="anonymous"></script>
 
 </body>
+
+
+<style>
+    .bg-d{
+     background-color: #FF6700;
+     border-radius: 20px;
+    }
+
+    .login-box-msg{
+        color: #FF6700;
+        font-size: 30px;
+    }
+    </style>
 </html>

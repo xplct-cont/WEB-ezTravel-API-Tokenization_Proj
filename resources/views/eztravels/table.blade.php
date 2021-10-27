@@ -1,7 +1,7 @@
 <div class="bg-dark">
 <div class="table-responsive">
     <table class="table" id="eztravels-table">
-        <thead class="bg-dark">
+        <thead class="bgk">
             <tr>
                 <th>Origin</th>
         <th>Destination</th>
@@ -16,7 +16,7 @@
         </thead>
         <tbody>
         @foreach($eztravels as $eztravel)
-            <tr class="bg-primary">
+            <tr class="bg-dark">
                 <td>{{ $eztravel->origin }}</td>
             <td>{{ $eztravel->destination }}</td>
             <td>{{ $eztravel->flight_no }}</td>
@@ -46,8 +46,11 @@
 </div>
 
 <style>
+    .bgk{
+        background-color: #FF6700;
+    }
     th{
-        color:#FF6700;
+        color:white;
     }
 
     </style>
