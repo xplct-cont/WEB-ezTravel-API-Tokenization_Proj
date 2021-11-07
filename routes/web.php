@@ -27,3 +27,4 @@ Route::get('/home', [
 
 
 Route::resource('eztravels', App\Http\Controllers\EztravelController::class);
+Route::resource('logs', App\Http\Controllers\LogsController::class);

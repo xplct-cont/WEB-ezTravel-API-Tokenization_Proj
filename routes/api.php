@@ -18,4 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('travellers-api', [TravellersController::class, 'travellersApi']);
+Route::post('login', [TravellersController::class, 'login']);
+Route::post('register', [TravellersController::class, 'register']);
+Route::post('reset-Password', [TravellersController::class, 'resetPassword']);
+Route::post('booking', [TravellersController::class, 'booking']);
