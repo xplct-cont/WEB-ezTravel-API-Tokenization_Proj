@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Validator;
 use Flash;
 use Response;
 
-class TravellersController extends Controller {
+class UsersController extends Controller {
 
     public $successStatus = 200;
 
@@ -47,9 +47,6 @@ class TravellersController extends Controller {
   }
 
   
-
-
-  
   public function register(Request $request) {
     $validator = Validator::make($request->all(), [
         'name' => 'required',
@@ -58,6 +55,8 @@ class TravellersController extends Controller {
         'password' => 'required',
     ]);
 
+
+    //Validatiing the Request
     if ($validator->fails()) {
         return response()->json(['response' => $validator->errors()], 401);
     } else {
@@ -83,7 +82,7 @@ class TravellersController extends Controller {
 }
 
 
-
+//Traveller's Booking Registration)
 public function booking(Request $request) {
     $validator = Validator::make($request->all(), [
         'origin' => 'required',

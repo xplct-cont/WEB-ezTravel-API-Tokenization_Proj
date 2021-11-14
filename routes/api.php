@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\API\TravellersController;
+use App\Http\Controllers\API\UsersController;
+use App\Http\Controllers\API\PostTravellersController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,7 +19,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('login', [TravellersController::class, 'login']);
-Route::post('register', [TravellersController::class, 'register']);
-Route::post('reset-Password', [TravellersController::class, 'resetPassword']);
-Route::post('booking', [TravellersController::class, 'booking']);
+//UsersController
+Route::post('login', [UsersController::class, 'login']);
+Route::post('register', [UsersController::class, 'register']);
+Route::post('reset-Password', [UsersController::class, 'resetPassword']);
+Route::post('booking', [UsersController::class, 'booking']);
+
+
+//PostTravellersController   
+Route::get('get-all-posts', [PostTravellersController::class, 'getAllPosts']);
+Route::get('get-passenger', [PostTravellersController::class, 'getPassenger']);
+Route::get('search-flightno', [PostTravellersController::class, 'searchFlightNo']);
+Route::get('search-travelclass', [PostTravellersController::class, 'searchTravelClass']);
