@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 use Flash;
 use Response;
 
@@ -22,19 +23,32 @@ use Response;
         $userid = $request['user_id']; //Request User ID
         $eztravel = Eztravel::all();
 
-        $user = User::where('id', $userid) ->where('remember_token', $token)->first();
+      //  $user = User::where('id', $userid) ->where('remember_token', $token)->first();
+
+      $eztravel = DB::table('eztravel')
+              ->leftJoin('users', 'eztravel.id','users.id') 
+              ->select('eztravel.id', 'eztravel.origin', 'eztravel.destination', 'eztravel.flight_no', 'eztravel.passenger_name', 'eztravel.age','eztravel.departure_date', 'eztravel.arrival_date', 'eztravel.travel_class', 'eztravel.created_at', 'eztravel.updated_at')
+              ->get();   
+
+      return response()->json($eztravel, $this->successStatus);
+
+
 
         //Checking if the Calling of Token and User ID is Valid 
-        if($user != null){
-        $eztravel = Eztravel::all();
+      //  if($user != null){
+       // $eztravel = Eztravel::all();
+      //  $eztravel = DB::table('eztravel')
+        //        ->leftJoin('users', 'eztravel.id','users.id') 
+          //      ->select('eztravel.id', 'eztravel.origin', 'eztravel.destination', 'eztravel.flight_no', 'eztravel.passenger_name', 'eztravel.age', 'eztravel.travel_class', 'eztravel.created_at', 'eztravel.updated_at')
+            //    ->get();   
 
-        return response()->json($eztravel, $this->successStatus);
+       // return response()->json($eztravel, $this->successStatus);
 
-        }else{
+        //}else{ 
         
-        return response()->json(['response'=>'Invalid Call'], 501);
+       // return response()->json(['response'=>'Invalid Call'], 501);
 
-        }
+        //}
     }
 
         public function getPassenger(Request $request) {
